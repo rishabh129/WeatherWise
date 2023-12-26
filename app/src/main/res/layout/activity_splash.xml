@@ -33,12 +33,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/merriweathersans_medium"
-        android:text="Developed by\nSpidy"
+        android:text="Developed By\nRishabh"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
