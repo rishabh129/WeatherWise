@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-// d6479edc6d21540658418148146ac4f4
+// 9f5e5a9b70bfd55862e90a223e52b4f6
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         fetchWeatherData("Ranchi")
+        fetchWeatherDataT("Ranchi")
         searchCity()
     }
 
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     fetchWeatherData(query)
+                    fetchWeatherDataT(query)
                 }
                 return true
             }
@@ -47,9 +49,9 @@ class MainActivity : AppCompatActivity() {
     private fun fetchWeatherData(cityName:String) {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.openweathermap.org/data/2.5/")
+            .baseUrl("https://pro.openweathermap.org/data/2.5/")
             .build().create(ApiInterface::class.java)
-        val response = retrofit.getWeatherData(cityName, "d6479edc6d21540658418148146ac4f4", "metric")
+        val response = retrofit.getWeatherData(cityName, "9f5e5a9b70bfd55862e90a223e52b4f6", "metric")
         response.enqueue(object : Callback<WeatherApp>{
             override fun onResponse(call: Call<WeatherApp>, response: Response<WeatherApp>) {
                 val responseBody = response.body()
@@ -67,8 +69,7 @@ class MainActivity : AppCompatActivity() {
                     binding.temp.text="$temperature °C"
                     binding.weather.text = "$condition"
                     binding.weatherCondition.text = "$condition"
-                    binding.maxTem.text = "Max Temp: $maxTemp °C"
-                    binding.minTem.text = "Min Temp: $minTemp °C"
+
                     binding.humidity.text="$humidity %"
                     binding.windSpeed.text="$windSpeed m/s"
                     binding.sunrise.text = "${time(sunRise)}"
@@ -80,12 +81,48 @@ class MainActivity : AppCompatActivity() {
 
 
                     //Log.d("TAG", "onResponse: $temperature")
-
+                    fetchWeatherDataT("Ranchi")
                     changeImageAccordingToWeatherCondition(condition)
                 }
             }
 
             override fun onFailure(call: Call<WeatherApp>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+
+    }
+
+    private fun fetchWeatherDataT(cityName:String) {
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://pro.openweathermap.org/data/2.5/")
+            .build().create(ApiInterfaceT::class.java)
+        val response = retrofit.getWeatherData(cityName, "9f5e5a9b70bfd55862e90a223e52b4f6", "metric")
+        response.enqueue(object : Callback<weatherappX>{
+            override fun onResponse(call: Call<weatherappX>, response: Response<weatherappX>) {
+                val responseBody = response.body()
+                Log.d("TAG", "API Response: $responseBody")
+                if (response.isSuccessful && responseBody!=null && responseBody.temp != null){
+                    //val maxTemp = responseBody.temp.max
+                    //val minTemp = responseBody.temp.min
+
+                    val maxTemp = responseBody.list[0].temp.max
+                    val minTemp = responseBody.list[0].temp.min
+
+
+                    binding.maxTem.text = "Max Temp: $maxTemp °C"
+                    binding.minTem.text = "Min Temp: $minTemp °C"
+
+                    //Log.d("TAG", "onResponse: $maxTemp")
+
+
+                }
+            }
+
+            override fun onFailure(call: Call<weatherappX>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 
@@ -133,3 +170,5 @@ class MainActivity : AppCompatActivity() {
         return sdf.format(Date())
     }
 }
+
+
