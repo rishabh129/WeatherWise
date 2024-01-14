@@ -39,28 +39,28 @@ Obtain an API key from OpenWeather. If you don't have an account, you'll need to
 5. Enter API Key:
 In the code, locate the placeholder YOUR_API_KEY and replace it with the API key you obtained from OpenWeather. This key is necessary for fetching weather data.
 
-// Replace YOUR_API_KEY with your actual OpenWeather API key
-private const val API_KEY = "YOUR_API_KEY"
+   // Replace YOUR_API_KEY with your actual OpenWeather API key
+   ```bash
+   private const val API_KEY = "YOUR_API_KEY"
 
-6. Run the App:
+7. Run the App:
 Build and run the app on an emulator or a physical device. Make sure your device is connected, and Android Studio is properly configured.
 
-7. Explore Weather Details:
+8. Explore Weather Details:
 Once the app is running, explore the different weather details provided. Check the current temperature, minimum and maximum temperatures for the day, humidity, sea level, wind speed, weather conditions, sunrise, and sunset.
 
-8. Dynamic Backgrounds:
+9. Dynamic Backgrounds:
 Observe how the app's background dynamically changes based on the current weather conditions. This feature enhances the user experience and provides a quick visual representation of the weather.
 
-9. Customize Backgrounds (Optional):
+10. Customize Backgrounds (Optional):
 If you wish to customize or add background images, navigate to the res/drawable directory. Modify existing images or add new ones to represent different weather conditions. The app will automatically use these images based on the current weather.
 
-10. Feedback and Contribution:
-
+11. Feedback and Contribution:
 If you encounter any issues or have suggestions for improvement, please open an issue on GitHub.
 Contributions are welcome! If you'd like to contribute to the project, fork the repository, make your changes, and submit a pull request.
 
-11. Roadmap:
+12. Roadmap:
 Check out the project roadmap to see upcoming features and improvements planned for WeatherWise.
 
-12. Acknowledgments:
+13. Acknowledgments:
 Thanks to OpenWeather for providing the weather API.
