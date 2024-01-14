@@ -28,26 +28,27 @@ WeatherWise is a weather application built with Kotlin and XML, providing users 
    git clone https://github.com/rishabh129/WeatherWise.git
 
 2. **Open in Android Studio**:
- - Open the project in Android Studio by navigating to the cloned directory.
+   Open the project in Android Studio by navigating to the cloned directory.
 
 3. **Install Dependencies**:
- - Android Studio will prompt you to install any missing dependencies. Follow the on-screen instructions to ensure all required dependencies are installed.
+   Android Studio will prompt you to install any missing dependencies. Follow the on-screen instructions to ensure all required dependencies are installed.
 
 4. **API Key**:
- - Obtain an API key from OpenWeather. If you don't have an account, you'll need to sign up. Once you have the key, proceed to the next step.
+   Obtain an API key from OpenWeather. If you don't have an account, you'll need to sign up. Once you have the key, proceed to the next step.
 
 5. **Enter API Key**:
- - In the code, locate the placeholder YOUR_API_KEY and replace it with the API key you obtained from OpenWeather. This key is necessary for fetching weather data.
+   In the code, locate the placeholder YOUR_API_KEY and replace it with the API key you obtained from OpenWeather. This key is necessary for fetching weather data.
 
    // Replace YOUR_API_KEY with your actual OpenWeather API key
    ```bash
    private const val API_KEY = "YOUR_API_KEY"
 
 7. **Run the App**:
- - Build and run the app on an emulator or a physical device. Make sure your device is connected, and Android Studio is properly configured.
+   Build and run the app on an emulator or a physical device. Make sure your device is connected, and Android Studio is properly configured.
 
 8. **Explore Weather Details**:
-Once the app is running, explore the different weather details provided. Check the current temperature, minimum and maximum temperatures for the day, humidity, sea level, wind speed, weather conditions, sunrise, and sunset.
+   Once the app is running, explore the different weather details provided.
+   Check the current temperature, minimum and maximum temperatures for the day, humidity, sea level, wind speed, weather conditions, sunrise, and sunset.
 
 ## Dynamic Backgrounds:
 
