@@ -1,7 +1,5 @@
 # WeatherWise
 
-![WeatherWise Logo](path/to/your/logo.png)
-
 ## Overview
 
 WeatherWise is a weather application built with Kotlin and XML, providing users with real-time weather details using the OpenWeather API. Stay informed about the current temperature, daily forecasts, humidity, sea level, wind speed, weather conditions, sunrise, sunset, and more. The app also enhances user experience by dynamically changing the background based on the current weather conditions.
@@ -14,8 +12,8 @@ WeatherWise is a weather application built with Kotlin and XML, providing users 
 
 ## Screenshots
 
-![Screenshot 1](path/to/screenshot1.png)
-![Screenshot 2](path/to/screenshot2.png)
+![Screenshot](app/src/main/res/drawable/Project-1.png)
+
 
 ## Technologies Used
 
