@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     private fun fetchWeatherData(cityName:String) {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://pro.openweathermap.org/data/2.5/")
+            .baseUrl("https://api.openweathermap.org/data/2.5/")
             .build().create(ApiInterface::class.java)
         val response = retrofit.getWeatherData(cityName, "9f5e5a9b70bfd55862e90a223e52b4f6", "metric")
         response.enqueue(object : Callback<WeatherApp>{
@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                     val condition = responseBody.weather.firstOrNull()?.main?:"unknown"
                     val maxTemp = responseBody.main.temp_max
                     val minTemp = responseBody.main.temp_min
+                    val feels_like = responseBody.main.feels_like
 
                     binding.temp.text="$temperature °C"
                     binding.weather.text = "$condition"
@@ -78,6 +79,9 @@ class MainActivity : AppCompatActivity() {
                     binding.day.text = dayName(System.currentTimeMillis())
                     binding.date.text = date()
                     binding.cityName.text= "$cityName"
+                    binding.minTem.text="Min : $minTemp °C"
+                    binding.maxTem.text="Max : $maxTemp °C"
+
 
 
                     //Log.d("TAG", "onResponse: $temperature")
@@ -113,8 +117,8 @@ class MainActivity : AppCompatActivity() {
                     val minTemp = responseBody.list[0].temp.min
 
 
-                    binding.maxTem.text = "Max Temp: $maxTemp °C"
-                    binding.minTem.text = "Min Temp: $minTemp °C"
+                    //binding.maxTem.text = "Max Temp: $maxTemp °C"
+                    //binding.minTem.text = "Min Temp: $minTemp °C"
 
                     //Log.d("TAG", "onResponse: $maxTemp")
 
